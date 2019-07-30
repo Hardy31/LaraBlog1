@@ -1,0 +1,10 @@
+Options +FollowSymLinks -Indexes
+RewriteEngine On
+DirectoryIndex public/index.php
+RewriteCond %{HTTP:Authorization} .
+RewriteRule .* - [E=HTTP_AUTHORIZATION:%{HTTP:Authorization}]
+
+
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !^.*\.(jpg|css|js|gif|png)$ [NC]
+RewriteRule .* public/index.php [L]
