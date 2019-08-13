@@ -12,7 +12,7 @@
 -->
 
 
-    <link rel="stylesheet" href="public/css/admin.css">
+    <link rel="stylesheet" href="/public/css/admin.css">
 
 
 
@@ -71,7 +71,7 @@
                                     <li><!-- start message -->
                                         <a href="#">
                                             <div class="pull-left">
-                                                <img src="public/imag/user1-128x128.jpg" class="img-circle" alt="User Image">
+                                                <img src="/public/imag/user1-128x128.jpg" class="img-circle" alt="User Image">
                                             </div>
                                             <h4>
                                                 Support Team
@@ -142,13 +142,13 @@
                     <!-- User Account: style can be found in dropdown.less -->
                     <li class="dropdown user user-menu">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                            <img src="public/imag/user1-128x128.jpg" class="user-image" alt="User Image">
+                            <img src="/public/imag/user1-128x128.jpg" class="user-image" alt="User Image">
                             <span class="hidden-xs">Alexander Pierce</span>
                         </a>
                         <ul class="dropdown-menu">
                             <!-- User image -->
                             <li class="user-header">
-                                <img src="public/imag/user1-128x128.jpg" class="img-circle" alt="User Image">
+                                <img src="/public/imag/user1-128x128.jpg" class="img-circle" alt="User Image">
 
                                 <p>
                                     Alexander Pierce - Web Developer
@@ -199,7 +199,7 @@
             <!-- Sidebar user panel -->
             <div class="user-panel">
                 <div class="pull-left image">
-                    <img src="public/imag/user1-128x128.jpg" class="img-circle" alt="User Image">
+                    <img src="/public/imag/user1-128x128.jpg" class="img-circle" alt="User Image">
                 </div>
                 <div class="pull-left info">
                     <p>Alexander Pierce</p>
@@ -454,7 +454,7 @@
     <div class="control-sidebar-bg"></div>
 </div>
 
-<script src="public/js/admin.js"></script>
+<script src="/public/js/admin.js"></script>
 </body>
 
 <!-- Mirrored from almsaeedstudio.com/themes/AdminLTE/pages/examples/blank.html by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 18 Dec 2016 15:13:35 GMT -->
