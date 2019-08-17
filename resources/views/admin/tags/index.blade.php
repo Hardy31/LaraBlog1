@@ -37,8 +37,9 @@
                             <th>Действия</th>
                         </tr>
                         </thead>
-                        @foreach($viewTags as $viewTag)
                         <tbody>
+                        @foreach($viewTags as $viewTag)
+
                         <tr>
                             <td>{{$viewTag->id}}</td>
                             <td>{{$viewTag->title}}

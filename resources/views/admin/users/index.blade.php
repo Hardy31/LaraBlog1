@@ -37,6 +37,7 @@
                             <th>Имя</th>
                             <th>E-mail</th>
                             <th>Аватар</th>
+                            <th>password</th>
                             <th>Действия</th>
                         </tr>
                         </thead>
@@ -47,9 +48,13 @@
                                 <td>{{$viewuser->id}}</td>
                                 <td>{{$viewuser->name}}</td>
                                 <td>{{$viewuser->email}}</td>
+
+
+                                <td>{{$viewuser->avatar}}</td>
                                 <td>{{$viewuser->password}}</td>
                                 <td>
-                                    <img src="{{$viewuser->getImag}}" alt="" class="img-responsive" width="150">
+
+                                    <img src="{{$viewuser->getImage()}}" alt="" class="img-responsive" width="150">
                                 </td>
                                 <td><a href="{{route('users.edit', $viewuser->id)}}" class="fa fa-pencil"></a>
 

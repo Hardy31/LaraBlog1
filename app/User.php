@@ -23,7 +23,7 @@ class  User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password',
+        'name', 'email'
     ];
 
     /**
@@ -68,7 +68,11 @@ class  User extends Authenticatable
     {
 
         $this->fill($fields);
-        $this->password = bcrypt($fields['password']);
+
+        if($fields['password'] != null){
+            $this->password = bcrypt($fields['password']);
+        }
+
         $this->save();
 
     }
@@ -83,11 +87,13 @@ class  User extends Authenticatable
 
     public function uploadAvatar($image )
     {
-        //dd(get_class_methods($image));
-        if ($image == null) {return; }
+       // dd(get_class_methods($image));
+
+        //dd($image);
+        if ($image == null) {return '/public/img/user8-128x128.jpg'; }
         Storage::delete('uploads/'.$this->avatar);
         $filename = str_random(10).'.'.$image->extension();
-
+        echo($filename);
         $image->storeAs('uploads', $filename);
         $this->avatar = $filename;
         $this->save();
@@ -96,8 +102,13 @@ class  User extends Authenticatable
 
     public function getImage()
     {
-        if ($this->image != null) {return '/img/no-avatar';}
-        return '/uploads/'. $this->image;
+        //dd($this->avatar);
+        if ($this->avatar == null) {return '/public/img/user8-128x128.jpg';}
+
+        $var = '/public/uploads/'.$this->avatar;
+
+        //dd($var);
+        return $var;
     }
 
     public function makeAdmin()

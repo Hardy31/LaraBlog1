@@ -43,7 +43,7 @@ mix.scripts([
     'resources/admin/assets/plugins/CKeditor.js',
     'resources/admin/assets/dist/js/app.min.js',
     'resources/admin/assets/dist/js/demo.js',
-    'resources/admin/assets/dist/scripts.js',
+    'resources/admin/assets/dist/scripts.js'
 
 ], 'public/js/admin.js');
 
