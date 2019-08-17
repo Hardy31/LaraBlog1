@@ -3,16 +3,12 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Category;
-use Illuminate\Contracts\Validation\Validator;
+use App\Tag;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
-class CategoriesController extends Controller
+class TagsController extends Controller
 {
-
-    protected $validate;
-
-
     /**
      * Display a listing of the resource.
      *
@@ -20,8 +16,9 @@ class CategoriesController extends Controller
      */
     public function index()
     {
-        $categories = Category::all();
-        return view('admin.categories.index', ['viewCategories' => $categories]);
+        //dd('index');
+        $tags = Tag::all();
+        return view('admin.tags.index', ['viewTags' => $tags]);
     }
 
     /**
@@ -31,29 +28,19 @@ class CategoriesController extends Controller
      */
     public function create()
     {
-
-        return view('admin.categories.create ');
+        return view('admin.tags.create ');
     }
 
     /**
      * Store a newly created resource in storage.
      *
-     * @param \Illuminate\Http\Request $request
+     * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
-     * @throws \Illuminate\Validation\ValidationException
      */
     public function store(Request $request)
     {
-
-
-        /*
-        Validator::make($request, [
-            'title' => 'reguired'
-            //, 'email' => 'email|unigue:users' - поле Email  уникальное в таблице Users
-    ]);
-      */
-        Category::add($request->all());
-        return redirect()->route('categories.index');
+        Tag::add($request->all());
+        return redirect()->route('tags.index');
     }
 
     /**
@@ -76,8 +63,8 @@ class CategoriesController extends Controller
     public function edit($id)
     {
         //dd('edit');
-        $category = Category::find($id);
-        return view('admin.categories.edit', ['viewCategory' => $category]);
+        $tag = Tag::find($id);
+        return view('admin.tags.edit', ['viewTag' => $tag]);
     }
 
     /**
@@ -89,10 +76,10 @@ class CategoriesController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $category = Category::find($id);
-        $category->slug = str_slug($request->title, '-');
-        $category->update($request->all());
-        return redirect()->route('categories.index');
+        $tag = Tag::find($id);
+        $tag->slug = str_slug($request->title, '-');
+        $tag->update($request->all());
+        return redirect()->route('tags.index');
     }
 
     /**
@@ -103,7 +90,7 @@ class CategoriesController extends Controller
      */
     public function destroy($id)
     {
-        Category::find($id)->delete();
-        return redirect()->route('categories.index');
+        Tag::find($id)->delete();
+        return redirect()->route('tags.index');
     }
 }

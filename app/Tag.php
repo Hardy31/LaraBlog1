@@ -6,6 +6,9 @@ use Illuminate\Database\Eloquent\Model;
 
 class Tag extends Model
 {
+
+    protected $fillable = ['title'];
+
     Public function posts()
     {
         return $this->belongsToMany(
@@ -15,4 +18,16 @@ class Tag extends Model
             'past_id'
         );
     }
+    public static function add($fields)
+    {
+
+
+        $tag = new Tag();
+        $tag->title = $fields['title'];
+        $tag->slug = str_slug($fields['title'], '-');
+
+        $tag->save();
+        return $tag;
+    }
+
 }

@@ -83,11 +83,13 @@ class  User extends Authenticatable
 
     public function uploadAvatar($image )
     {
+        //dd(get_class_methods($image));
         if ($image == null) {return; }
-        Storage::delete('uploads/'.$this->image);
+        Storage::delete('uploads/'.$this->avatar);
         $filename = str_random(10).'.'.$image->extension();
-        $image->saveAs('uploads', $filename);
-        $this->image = $filename;
+
+        $image->storeAs('uploads', $filename);
+        $this->avatar = $filename;
         $this->save();
 
     }

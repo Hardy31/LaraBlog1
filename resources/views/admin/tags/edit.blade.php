@@ -1,4 +1,4 @@
-@extends('admin.layout')
+ @extends('admin.layout')
 
 @section('content')
     <!-- Content Wrapper. Contains page content -->
@@ -23,10 +23,10 @@
 
 
 
-                    {{ Form::open(['route' => ['categories.update', $viewCategory->id], 'method' =>'PUT']) }}
+                    {{ Form::open(['route' => ['tags.update', $viewTag->id], 'method' =>'PUT']) }}
 
  <!--
-                    <form action="{{' /admin/categories/'.$viewCategory->id}}" method="POST">
+                    <form action="{{' /admin/tags/'.$viewTag->id}}" method="POST">
                     <input type="hidden" id="_token" name="_token" value="{{csrf_token()}}">
 -->
                     <input name="_method" type="hidden" value="PUT">
@@ -34,7 +34,7 @@
                     <div class="col-md-6">
                         <div class="form-group">
                             <label for="exampleInputEmail1">Название</label>
-                            <input type="text" class="form-control" id="exampleInputEmail1" name="title" placeholder="" value="{{$viewCategory->title}}">
+                            <input type="text" class="form-control" id="exampleInputEmail1" name="title" placeholder="" value="{{$viewTag->title}}">
                         </div>
                     </div>
                 </div>

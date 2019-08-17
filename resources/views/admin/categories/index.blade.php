@@ -21,7 +21,7 @@
         <!-- Default box -->
         <div class="box">
             <div class="box-header">
-                <h3 class="box-title">Листинг сущности</h3>
+                <h3 class="box-title">Categories -Листинг сущности</h3>
             </div>
             <!-- /.box-header -->
             <div class="box-body">
@@ -48,7 +48,13 @@
                             <td>
                                 <a href="{{route('categories.edit', $viewCategory->id)}}" class="fa fa-pencil"></a>
 
-                                <a href="#" class="fa fa-remove"></a>
+                                {{ Form::open(['route' => ['categories.destroy', $viewCategory->id], 'method' => 'delete']) }}
+                                    <button  onclick="return confirm('Вы уверены?')" type="submit" class="delete">
+                                        <a  class="fa fa-remove"></a>
+                                    </button>
+
+                                {{ Form::close() }}
+
                             </td>
                         </tr>
 
@@ -59,6 +65,8 @@
 
 
                     </tbody>
+                    <tfoot>
+                    </tfoot>
                 </table>
             </div>
             <!-- /.box-body -->

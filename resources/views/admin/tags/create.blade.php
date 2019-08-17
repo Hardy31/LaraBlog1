@@ -18,12 +18,9 @@
             <div class="box">
 
 
-                {{ Form::open(['route' => 'categories.store']) }}
+                {{ Form::open(['route' => 'tags.store']) }}
 
-<!--
-                <form action="{{' /admin/categories'}}" method="POST">
-                    <input type="hidden" id="_token" name="_token" value="{{csrf_token()}}">
--->
+
                     <div class="box-header with-border">
                         <h3 class="box-title">Добавляем категорию</h3>
                         @if ($errors->any())
