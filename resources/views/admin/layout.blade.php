@@ -150,16 +150,16 @@
                     <!-- User Account: style can be found in dropdown.less -->
                     <li class="dropdown user user-menu">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                            <img src="/public/imag/user1-128x128.jpg" class="user-image" alt="User Image">
-                            <span class="hidden-xs">Alexander Pierce</span>
+                            <img src="{{Auth::user()->getImage()}}" class="user-image" alt="User Image">
+                            <span class="hidden-xs">{{Auth::user()->name}}</span>
                         </a>
                         <ul class="dropdown-menu">
                             <!-- User image -->
                             <li class="user-header">
-                                <img src="/public/imag/user1-128x128.jpg" class="img-circle" alt="User Image">
+                                <img src="{{Auth::user()->getImage()}}" class="img-circle" alt="User Image">
 
                                 <p>
-                                    Alexander Pierce - Web Developer
+                                    {{Auth::user()->name}} - Web Developer
                                     <small>Member since Nov. 2012</small>
                                 </p>
                             </li>
@@ -207,10 +207,10 @@
             <!-- Sidebar user panel -->
             <div class="user-panel">
                 <div class="pull-left image">
-                    <img src="/public/imag/user1-128x128.jpg" class="img-circle" alt="User Image">
+                    <img src="{{Auth::user()->getImage()}}" class="img-circle" alt="User Image">
                 </div>
                 <div class="pull-left info">
-                    <p>Alexander Pierce</p>
+                    <p>{{Auth::user()->name}}</p>
                     <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
                 </div>
             </div>
@@ -233,14 +233,11 @@
                         <i class="fa fa-dashboard"></i> <span>Админ-панель</span>
                     </a>
                 </li>
-                <li><a href="#"><i class="fa fa-sticky-note-o"></i> <span>Посты</span></a></li>
+                <li><a href="{{route('posts.index')}}"><i class="fa fa-sticky-note-o"></i> <span>Посты</span></a></li>
                 <li><a href="{{route('categories.index')}}"><i class="fa fa-list-ul"></i> <span>Категории</span></a></li>
                 <li><a href="{{route('tags.index')}}"><i class="fa fa-tags"></i> <span>Теги</span></a></li>
-                <li>
-                    <a href="{{route('categories.index')}}">
-                        <i class="fa fa-commenting"></i> <span>Комментарии</span>
-                        <span class="pull-right-container">
-              <small class="label pull-right bg-green">5</small>
+                <li><a href="/admin/comments"><i class="fa fa-commenting"></i> <span>Комментарии</span><span class="pull-right-container">
+              <small class="label pull-right bg-green">{{App\Comment::where('status', 0)->count()}}</small>
             </span>
                     </a>
                 </li>
@@ -463,7 +460,19 @@
 </div>
 
 <script src="/public/js/admin.js"></script>
+<script src="/public/plugins/ckeditor/ckeditor.js"></script>
+<script src="/public/plugins/ckfinder/ckfinder.js"></script>
+<script>
 
+
+        $(document).ready(function(){
+            var editor = CKEDITOR.replaceAll();
+            CKFinder.setupCKEditor(editor);
+        })
+
+
+
+</script>
 
 <script>
 

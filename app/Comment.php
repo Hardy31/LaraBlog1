@@ -8,12 +8,12 @@ class Comment extends Model
 {
     Public function post()
     {
-        return $this->hasOne(Post::class);
+        return $this->belongsTo(Post::class);
     }
 
     Public function author()
     {
-        return $this->hasOne(User::class);
+        return $this->belongsTo(User::class, 'user_id');
     }
 
 
@@ -33,7 +33,7 @@ class Comment extends Model
     //пеоекдючатель
     public function toggleStatus()
     {
-        if ( $this->status = 0)
+        if ( $this->status == 0)
         {
             return $this->allow();
         }

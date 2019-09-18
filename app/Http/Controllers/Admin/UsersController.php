@@ -9,11 +9,7 @@ use Illuminate\Validation\Rule;
 
 class UsersController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+
     public function index()
     {
         //dd('index');
@@ -21,22 +17,11 @@ class UsersController extends Controller
         return view('admin.users.index', ['viewusers' => $users]);
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function create()
     {
         return view('admin.users.create ');
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
     public function store(Request $request)
     {
         $this->validate($request, [
@@ -50,24 +35,14 @@ class UsersController extends Controller
         $user->uploadAvatar($request->file('avatar'));
         return redirect()->route('users.index');
 
+
     }
 
-    /**
-     * Display the specified resource.
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function show($id)
     {
         dd('show');
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function edit($id)
     {
         //dd('edit');
@@ -75,12 +50,6 @@ class UsersController extends Controller
         return view('admin.users.edit', compact('user'));
     }
 
-    /**
-     * Update the specified resource in storage
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Htt p\Response
-     */
     public function update(Request $request, $id)
     {
 
@@ -98,20 +67,16 @@ class UsersController extends Controller
         ]);
         //dd($request->file('avatar'));
         $user->edit($request->all());
+
+        dd($request->all(), $request->file('avatar') );
         $user->uploadAvatar($request->file('avatar'));
         return redirect()->route('users.index');
 
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function destroy($id)
     {
-        User::find($id)->delete();
+        User::find($id)->remuv();
         return redirect()->route('users.index');
     }
 }

@@ -15,7 +15,7 @@ class Tag extends Model
             Post::class,
             'post_tags',
             'tag_id',
-            'past_id'
+            'post_id'
         );
     }
     public static function add($fields)
@@ -28,6 +28,17 @@ class Tag extends Model
 
         $tag->save();
         return $tag;
+
+
+    }
+    public function sluggable()
+    {
+        return [
+            'slug' => [
+                'source' => 'title'
+            ]
+        ];
     }
 
 }
+

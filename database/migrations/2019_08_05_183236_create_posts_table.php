@@ -18,10 +18,12 @@ class  CreatePostsTable extends Migration
             $table->string('title');
             $table->string('slug');
             $table->text('content');
+            $table->date('date')->nullable();
+            $table->string('image')->nullable();
             $table->integer('category_id')->nullable();
             $table->integer("user_id")->nullable();
             $table->integer('status')->default(0) ;  //0 - черновик или 1-публичный доступ
-            $table->integer('views')->default(0);   //количество просмотров
+            $table->integer('wiev')->default(0);   //количество просмотров
             $table->integer('is_featured')->default(0);  //для сайтбара 0-не показывать в рекомендованных, 1 рекомендованный
             $table->timestamps();
         });

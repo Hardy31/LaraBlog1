@@ -3,6 +3,9 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use App\Tag;
+use App\Post;
+
 
 class Category extends Model
 {
@@ -11,7 +14,7 @@ class Category extends Model
 
     Public function posts()
     {
-        return $this->  hasMany(Category::class);
+        return $this->  hasMany(Post::class);
     }
 
     public static function add($fields)
