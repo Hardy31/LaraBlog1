@@ -79,4 +79,8 @@ class UsersController extends Controller
         User::find($id)->remuv();
         return redirect()->route('users.index');
     }
+    public function show1()
+    {
+        echo();
+    }
 }
